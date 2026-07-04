@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, Form
 from cv_parser import extract_text_from_pdf
 from ai_resume_parser import parse_resume
 from resume_analyzer import analyze_resume
@@ -17,14 +17,13 @@ async def upload(file: UploadFile = File(...)):
     return {f"filename": file.filename, "resume": resume_json, "analysis": analysis}
 
 @app.post("/job-match")
-async def job_match(file: UploadFile = File(...),
-    job_description: str = Form(...)
-):
+async def job_match(file: UploadFile = File(...), job_description: str = Form(...)):
+    with open(f"uploads/{file.filename}", "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+    text = extract_text_from_pdf(f"uploads/{file.filename}")
     resume_json = parse_resume(text)
-
     match = match_resume_to_job(resume_json,job_description)
-
-    return {"resume": resume_json, "job_match": match}
+    return {"resume": resume_json,"job_match": match}
 
 if __name__ == "__main__":
     import uvicorn
