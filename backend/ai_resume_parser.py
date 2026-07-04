@@ -18,6 +18,9 @@ def parse_resume(text):
     - name
     - email
     - phone
+    - location
+    - linkedin profile
+    - github profile
     - skills
     - education
     - experience
@@ -42,4 +45,5 @@ def parse_resume(text):
         temperature=0
     )
 
-    return response.choices[0].message.content
+    result = response.choices[0].message.content
+    return json.loads(result)

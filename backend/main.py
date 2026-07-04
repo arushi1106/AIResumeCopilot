@@ -9,6 +9,7 @@ app = FastAPI()
 async def upload(file: UploadFile = File(...)):
     with open(f"uploads/{file.filename}", "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
+    text = extract_text_from_pdf(f"uploads/{file.filename}")
     resume_json = parse_resume(text)
     return {"resume": resume_json}
 
