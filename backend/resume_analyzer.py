@@ -11,9 +11,18 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def analyze_resume(resume_json):
     prompt = f"""
-Analyze the following resume.
+Analyze the following resume as if you are a Senior Hiring Manager at a top AI company.
 
-Pretend you are a senior hiring manager at a top AI company. Tell me honestly what's weak, whats missing, whats good, whats great.
+Evaluate the resume on a scale of 0–100.
+
+Scoring Guidelines:
+- 90–100: Outstanding resume, interview-ready.
+- 80–89: Strong resume with only minor improvements needed.
+- 70–79: Good resume but several areas need strengthening.
+- 60–69: Average resume with noticeable gaps.
+- Below 60: Weak resume requiring major improvements.
+
+Be honest and critical.
 
 Return ONLY valid JSON.
 
