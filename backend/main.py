@@ -6,7 +6,6 @@ app = FastAPI()
 
 @app.post("/upload")
 async def upload(file: UploadFile = File(...)):
-    return {"filename": file.filename}
     with open(f"uploads/{file.filename}", "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
     text = extract_text_from_pdf(f"uploads/{file.filename}")
