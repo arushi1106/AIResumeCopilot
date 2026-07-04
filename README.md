@@ -1,82 +1,22 @@
 # AI Job Application Copilot
 
-An AI-powered autonomous job search platform that analyzes a candidate's resume, evaluates their profile like an experienced recruiter, discovers relevant live job opportunities, tailors application materials using Large Language Models (LLMs), and manages the job application lifecycle with human-in-the-loop approval.
+An AI-powered autonomous job search platform that analyzes a candidate's resume, evaluates its quality, matches it against job descriptions, identifies skill gaps, tailors application materials using Large Language Models (LLMs), and manages the complete job application lifecycle with human-in-the-loop approval.
 
-The goal is to automate the repetitive parts of job hunting while ensuring every application remains personalized, accurate, and under the user's control.
-
----
-
-# Tech Stack
-
-- Python
-- FastAPI
-- OpenAI GPT-4.1-mini
-- LangChain *(Upcoming)*
-- LangGraph *(Upcoming)*
-- Qdrant Vector Database *(Upcoming)*
-- Sentence Transformers *(Upcoming)*
-- PostgreSQL *(Upcoming)*
-- Playwright *(Upcoming)*
-- Docker *(Upcoming)*
-
----
-
-# Project Architecture
-
-```
-                   Resume (PDF)
-                        │
-                        ▼
-              PDF Text Extraction
-                        │
-                        ▼
-          AI Structured Resume Parser
-                        │
-                        ▼
-          Structured Resume JSON
-                        │
-                        ▼
-            AI Resume Evaluation
-                        │
-                        ▼
-        Resume Score & Feedback
-                        │
-                        ▼
-        Embedding Generation (Upcoming)
-                        │
-                        ▼
-        Semantic Job Matching (Upcoming)
-                        │
-                        ▼
-        Resume Tailoring Agent
-                        │
-                        ▼
-      AI Cover Letter Generator
-                        │
-                        ▼
-      Human Review & Approval
-                        │
-                        ▼
-     Automated Job Applications
-                        │
-                        ▼
-      Application Tracker Dashboard
-```
+The platform automates repetitive aspects of job hunting while ensuring every recommendation remains personalized, transparent, and under the user's control.
 
 ---
 
 # Features
 
-## Resume Processing
+## AI Resume Processing
 
 - Upload PDF resumes
-- Extract text using PyMuPDF
-- AI-powered structured resume parsing
-- Convert resumes into structured JSON
+- Extract resume text using PyMuPDF
+- Parse resumes into structured JSON using GPT-4.1-mini
 - Extract:
   - Personal Information
   - Skills
-  - Experience
+  - Work Experience
   - Education
   - Projects
   - Certifications
@@ -85,9 +25,9 @@ The goal is to automate the repetitive parts of job hunting while ensuring every
 
 ## AI Resume Evaluation
 
-Evaluate resumes like an experienced hiring manager.
+Evaluate resumes as an experienced AI hiring manager.
 
-Includes:
+Provides:
 
 - Overall Resume Score (0–100)
 - Technical Skills Score
@@ -97,323 +37,371 @@ Includes:
 - Business Impact Score
 - Resume Quality Score
 
-Along with:
+Additionally generates:
 
-- Detailed recruiter comments
+- Recruiter Comments
 - Strengths
 - Weaknesses
 - Missing Skills
-- Personalized recommendations
-- Professional resume summary
+- Improvement Recommendations
+- Professional Resume Summary
 
 ---
 
-## Intelligent Job Discovery *(Upcoming)*
+## AI Job Matching
 
-- Search live job openings
-- Collect jobs from multiple job boards
-- Filter based on:
-  - Skills
-  - Experience
-  - Location
-  - Visa sponsorship
-  - Salary
-  - Remote/Hybrid preferences
-
----
-
-## AI Resume Optimization *(Upcoming)*
-
-- Tailor resumes for every job description
-- Rewrite bullet points
-- Highlight relevant experience
-- Improve ATS compatibility
-
----
-
-## AI Cover Letter Generator *(Upcoming)*
-
-- Personalized cover letters
-- Company-specific customization
-- Role-specific customization
-
----
-
-## Human-in-the-loop Approval *(Upcoming)*
-
-Every generated resume and cover letter is reviewed by the user before submission.
-
-No application is submitted automatically without explicit approval.
-
----
-
-## Automated Job Applications *(Upcoming)*
-
-- Secure login
-- Fill application forms
-- Upload tailored documents
-- Submit applications
-- Track application status
-
----
-
-## Application Dashboard *(Upcoming)*
-
-Track every application from one place.
-
-- Applied
-- Interviews
-- Assessments
-- Offers
-- Rejections
-- Withdrawn
-
----
-
-# Development Roadmap
-
-## ✅ Phase 1 — Resume Upload & Text Extraction
-
-Completed
-
-- FastAPI backend
-- PDF upload endpoint
-- Resume storage
-- PDF text extraction using PyMuPDF
-
----
-
-## ✅ Phase 2 — AI Resume Parser
-
-Completed
-
-Extracts:
-
-- Name
-- Email
-- Phone
-- LinkedIn
-- GitHub
-- Skills
-- Experience
-- Education
-- Projects
-- Certifications
-
-Returns structured JSON.
-
----
-
-## ✅ Phase 3 — AI Resume Evaluation
-
-Completed
+Compare any resume against a job description.
 
 Provides:
 
-- Overall resume score (0–100)
-- Technical skills evaluation
-- Experience evaluation
-- Projects evaluation
-- Education evaluation
-- Business impact evaluation
-- Resume quality evaluation
-- Recruiter comments
-- Strengths
-- Weaknesses
-- Missing skills
-- Recommendations
-- Resume summary
+- Overall Match Score (0–100)
+- Skill Match Score
+- Experience Match Score
+- Education Match Score
+- Keyword Match Score
+- Matched Skills
+- Missing Skills
+- Skill Gap Analysis
+- Hiring Recommendation
+- Confidence Level
+- Personalized Recommendations
+- Job Match Summary
 
 ---
 
-## 🚧 Phase 4 — Resume Embeddings
+## Planned Features
 
-Planned
+- Resume Tailoring
+- ATS Optimization
+- Cover Letter Generation
+- Interview Preparation
+- Job Search Agent
+- Automated Job Applications
+- Application Dashboard
+- Resume Chatbot (RAG)
 
+---
+
+# Tech Stack
+
+### Backend
+
+- Python
+- FastAPI
+
+### AI
+
+- OpenAI GPT-4.1-mini
+- LangChain
+- LangGraph
+
+### Vector Search
+
+- Qdrant
 - Sentence Transformers
-- OpenAI Embeddings
-- Resume chunking
-- Vector storage in Qdrant
+
+### Database
+
+- PostgreSQL
+
+### Automation
+
+- Playwright
+
+### Deployment
+
+- Docker
 
 ---
 
-## 🚧 Phase 5 — Resume RAG Assistant
+# Project Architecture
 
-Ask questions about any uploaded resume.
-
-Example:
-
-- What cloud technologies does this candidate know?
-- Summarize the AI projects.
-- Does this candidate have leadership experience?
-
----
-
-## 🚧 Phase 6 — Live Job Search Agent
-
-Search jobs from:
-
-- LinkedIn
-- Greenhouse
-- Ashby
-- Lever
-- Workday
-- Company Career Pages
-
----
-
-## 🚧 Phase 7 — AI Job Matching
-
-Calculate compatibility based on:
-
-- Skills
-- Experience
-- Education
-- Visa sponsorship
-- Location
-- Salary
-- Seniority
-
----
-
-## 🚧 Phase 8 — Resume Tailoring Agent
-
-Generate a customized resume for each job.
-
----
-
-## 🚧 Phase 9 — AI Cover Letter Agent
-
-Generate personalized cover letters.
+```
+                         Resume PDF
+                              │
+                              ▼
+                    PDF Text Extraction
+                              │
+                              ▼
+                   AI Resume Parser (LLM)
+                              │
+                              ▼
+                    Structured Resume JSON
+                     │                    │
+                     │                    │
+                     ▼                    ▼
+             Resume Evaluation      Job Description
+                     │                    │
+                     │                    ▼
+                     │            AI Job Matcher
+                     │                    │
+                     ▼                    ▼
+           Resume Analysis       Match Analysis
+                     │                    │
+                     └────────────┬───────┘
+                                  ▼
+                      Resume Improvement Agent
+                                  │
+                                  ▼
+                       Tailored Resume Generator
+                                  │
+                                  ▼
+                     Cover Letter Generator
+                                  │
+                                  ▼
+                       Human Review & Approval
+                                  │
+                                  ▼
+                    Automated Job Application
+                                  │
+                                  ▼
+                      Application Tracker
+```
 
 ---
 
-## 🚧 Phase 10 — Job Application Agent
+# REST API
 
-Automate applications using Playwright while requiring user approval before submission.
+## Upload & Parse Resume
+
+```
+POST /upload
+```
+
+Uploads a PDF resume and returns:
+
+- Extracted Resume JSON
+- AI Resume Evaluation
 
 ---
 
-## 🚧 Phase 11 — Job Application Dashboard
+## Job Matching
 
-Track:
+```
+POST /job-match
+```
 
-- Applications
-- Interviews
-- Assessments
-- Rejections
-- Offers
+Inputs:
+
+- Resume PDF
+- Job Description
+
+Returns:
+
+- Match Score
+- Skill Gap Analysis
+- Missing Skills
+- Hiring Recommendation
+- Improvement Suggestions
 
 ---
 
 # Current Progress
 
-## ✅ Completed
+## ✅ Phase 1 — Resume Upload & Parsing
 
-- FastAPI backend
-- Resume upload API
-- PDF text extraction
-- AI resume parser
-- Structured JSON generation
-- AI recruiter-style resume evaluation
-- Resume scoring (0–100)
-- Category-wise evaluation
-- Recruiter feedback generation
-- Swagger API documentation
+Completed
 
-Current workflow:
+- PDF Upload
+- Resume Storage
+- Text Extraction using PyMuPDF
+- Structured Resume Parsing using GPT-4.1-mini
+- JSON Resume Generation
+- FastAPI Endpoint
+- Swagger Documentation
+
+---
+
+## ✅ Phase 2 — AI Resume Evaluation
+
+Completed
+
+- Resume Review
+- Overall Score
+- Category-wise Evaluation
+- Recruiter Comments
+- Strengths
+- Weaknesses
+- Missing Skills
+- Personalized Recommendations
+- Resume Summary
+
+---
+
+## ✅ Phase 3 — AI Job Matching
+
+Completed
+
+- Resume vs Job Description Matching
+- Overall Match Score
+- Skill Match Analysis
+- Experience Match Analysis
+- Education Match Analysis
+- Keyword Match Analysis
+- Matched Skills
+- Missing Skills
+- Skill Gap Detection
+- Hiring Recommendation
+- Confidence Score
+- Personalized Recommendations
+- AI Match Summary
+
+---
+
+# Upcoming Roadmap
+
+## 🚀 Phase 4 — AI Resume Tailoring
+
+- Resume Rewrite
+- ATS Optimization
+- Bullet Point Enhancement
+- Keyword Optimization
+- Role-specific Resume Generation
+
+---
+
+## 🚀 Phase 5 — Cover Letter Generator
+
+- Company-specific Cover Letters
+- Role-specific Cover Letters
+- Personalized Writing Style
+
+---
+
+## 🚀 Phase 6 — ATS Optimization
+
+- ATS Compatibility Score
+- Keyword Density Analysis
+- Formatting Suggestions
+- Section Completeness Analysis
+
+---
+
+## 🚀 Phase 7 — Resume Knowledge Base (RAG)
+
+- Resume Embeddings
+- Qdrant Integration
+- Semantic Search
+- Resume Chatbot
+
+Example:
 
 ```
-Resume (PDF)
-      │
-      ▼
-FastAPI Upload
-      │
-      ▼
-PyMuPDF Text Extraction
-      │
-      ▼
-GPT-4.1 Resume Parser
-      │
-      ▼
-Structured Resume JSON
-      │
-      ▼
-GPT-4.1 Resume Evaluator
-      │
-      ▼
-Resume Score
-      │
-      ▼
-Strengths
-Weaknesses
-Recommendations
-Summary
+What cloud technologies does this candidate know?
+
+Summarize all NLP experience.
+
+Which projects use Docker?
+```
+
+---
+
+## 🚀 Phase 8 — Live Job Search
+
+Supported Sources
+
+- LinkedIn
+- Greenhouse
+- Lever
+- Ashby
+- Workday
+- Company Career Pages
+
+---
+
+## 🚀 Phase 9 — AI Job Application Agent
+
+- Browser Automation
+- Resume Upload
+- Cover Letter Upload
+- Form Filling
+- Human Approval Before Submission
+
+---
+
+## 🚀 Phase 10 — Application Dashboard
+
+Track
+
+- Saved Jobs
+- Applied Jobs
+- Assessments
+- Interviews
+- Rejections
+- Offers
+- Application Status Timeline
+
+---
+
+# Example Workflow
+
+```
+Resume PDF
+     │
+     ▼
+Upload
+     │
+     ▼
+Extract Text
+     │
+     ▼
+AI Resume Parser
+     │
+     ▼
+Resume JSON
+     │
+     ├───────────────┐
+     ▼               ▼
+Resume Review    Job Matching
+     │               │
+     └──────┬────────┘
+            ▼
+Resume Tailoring
+            │
+            ▼
+Cover Letter
+            │
+            ▼
+Application Agent
+            │
+            ▼
+Dashboard
 ```
 
 ---
 
 # Future Improvements
 
-- ATS Compatibility Score
-- Resume vs Job Description Matching
-- Skill Gap Detection
-- Resume Rewrite Suggestions
-- AI Bullet Point Optimization
-- Interview Question Generator
-- AI Recruiter Chat
-- Resume Version Comparison
-- Resume Version History
-- Multi-agent Architecture with LangGraph
-- Memory-enabled Agents
+- Multi-Agent Architecture using LangGraph
+- Memory-enabled AI Agents
+- Resume Versioning
+- Recruiter Email Generator
+- Networking Assistant
+- AI Career Coach
+- Interview Simulator
+- Analytics Dashboard
 - Docker Deployment
-- AWS/GCP/Azure Deployment
+- AWS Deployment
+- Azure Deployment
+- GCP Deployment
 
 ---
 
 # Project Status
 
-🚧 **Active Development**
+🚧 **Actively Under Development**
 
-## ✅ Completed
+Current Completion:
 
-### Resume Processing
-
-- ✔ PDF Resume Upload
-- ✔ Resume Text Extraction (PyMuPDF)
-- ✔ AI Resume Parsing
-- ✔ Structured Resume JSON
-
-### Resume Evaluation
-
-- ✔ Overall Resume Score (0–100)
-- ✔ Technical Skills Evaluation
-- ✔ Experience Evaluation
-- ✔ Projects Evaluation
-- ✔ Education Evaluation
-- ✔ Business Impact Evaluation
-- ✔ Resume Quality Evaluation
-- ✔ Recruiter Comments
-- ✔ Strengths & Weaknesses Detection
-- ✔ Missing Skills Detection
-- ✔ Personalized Recommendations
-- ✔ Professional Resume Summary
+- ✅ Resume Parsing
+- ✅ AI Resume Review
+- ✅ AI Job Matching
+- 🚧 Resume Tailoring
+- 🚧 ATS Optimization
+- 🚧 Cover Letter Generation
+- 🚧 RAG Resume Chat
+- 🚧 Job Search Agent
+- 🚧 Application Automation
+- 🚧 Frontend Dashboard
 
 ---
-
-## 🚀 Next Milestone
-
-### AI Job Matching Engine
-
-Upcoming features:
-
-- Semantic Resume Search
-- Resume Embeddings
-- Vector Database (Qdrant)
-- Job Description Matching
-- ATS Compatibility Analysis
-- Resume Tailoring
-- Cover Letter Generation
-- Live Job Search
-- Automated Job Applications
-- Application Dashboard
