@@ -1,6 +1,7 @@
 from fastapi import FastAPI, UploadFile, File
 from cv_parser import extract_text_from_pdf
 from ai_resume_parser import parse_resume
+from resume_analyzer import analyze_resume
 import shutil
 
 app = FastAPI()
@@ -11,7 +12,8 @@ async def upload(file: UploadFile = File(...)):
         shutil.copyfileobj(file.file, buffer)
     text = extract_text_from_pdf(f"uploads/{file.filename}")
     resume_json = parse_resume(text)
-    return {"resume": resume_json}
+    analysis = analyze_resume(resume_json)
+    return {f"filename": file.filename, "resume": resume_json, "analysis": analysis}
 
 if __name__ == "__main__":
     import uvicorn
