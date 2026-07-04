@@ -11,7 +11,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 def match_resume_to_job(resume_json, job_description):
 
     prompt = f"""
-You are a Senior AI Hiring Manager with over 15 years of experience hiring Machine Learning Engineers, NLP Engineers, LLM Engineers, AI Researchers, and Software Engineers at companies such as OpenAI, Anthropic, Google DeepMind, Microsoft, Meta, and Amazon.
+You are a Senior AI Hiring Manager with over 15 years of experience hiring AI Engineers, Machine Learning Engineers, NLP Engineers, LLM Engineers, AI Researchers, and Software Engineers at companies such as OpenAI, Anthropic, Google DeepMind, Microsoft, Meta, and Amazon.
 
 Your task is to objectively evaluate how well the candidate's resume matches the provided job description.
 
