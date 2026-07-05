@@ -1,5 +1,5 @@
 import json
-from openai_client import client
+from openai_client import client, parse_llm_json
 
 schema = {
     "score": 0,
@@ -78,9 +78,8 @@ Resume:
                 "content": prompt
             }
         ],
-        temperature=0.3
+        temperature=0.3,
+        response_format={"type": "json_object"},
     )
 
-    result = response.choices[0].message.content
-
-    return json.loads(result)
+    return parse_llm_json(response.choices[0].message.content)

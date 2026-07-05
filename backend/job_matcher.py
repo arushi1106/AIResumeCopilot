@@ -1,5 +1,5 @@
 import json
-from openai_client import client
+from openai_client import client, parse_llm_json
 
 
 def match_resume_to_job(resume_json, job_description):
@@ -133,7 +133,8 @@ Job Description:
                 "content": prompt
             }
         ],
-        temperature=0.3
+        temperature=0.3,
+        response_format={"type": "json_object"},
     )
 
-    return json.loads(response.choices[0].message.content)
+    return parse_llm_json(response.choices[0].message.content)

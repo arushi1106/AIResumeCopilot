@@ -1,5 +1,4 @@
-import json
-from openai_client import client
+from openai_client import client, parse_llm_json
 
 def parse_resume(text):
 
@@ -35,8 +34,8 @@ def parse_resume(text):
                 "content":prompt
             }
         ],
-        temperature=0
+        temperature=0,
+        response_format={"type": "json_object"},
     )
 
-    result = response.choices[0].message.content
-    return json.loads(result)
+    return parse_llm_json(response.choices[0].message.content)
