@@ -1,11 +1,5 @@
 import json
-import os
-from openai import OpenAI
-from dotenv import load_dotenv
-
-load_dotenv()
-
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+from openai_client import client
 
 
 def match_resume_to_job(resume_json, job_description):

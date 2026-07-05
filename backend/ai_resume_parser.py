@@ -1,12 +1,5 @@
-from openai import OpenAI
-from dotenv import load_dotenv
-import os
 import json
-
-load_dotenv()
-
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
+from openai_client import client
 
 def parse_resume(text):
 
