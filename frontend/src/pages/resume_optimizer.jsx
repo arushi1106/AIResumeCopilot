@@ -167,7 +167,7 @@ export default function ResumeOptimizer() {
           <h2>Recruiter Questions</h2>
 
           <ol>
-          {result.interview_questions?.map((q, i) => (
+          {result.likely_interview_questions?.map((q, i) => (
               <li key={i}>
                 <b>{q.question}</b>
 
@@ -182,7 +182,7 @@ export default function ResumeOptimizer() {
 
           <h2>Improved Bullets</h2>
 
-          {result.improved_bullets?.map((b, i) => (
+          {result.changes_made?.map((b, i) => (
             <div
               key={i}
               style={{
