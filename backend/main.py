@@ -4,7 +4,7 @@ from cv_parser import extract_text_from_pdf
 from ai_resume_parser import parse_resume
 from resume_analyzer import analyze_resume
 from job_matcher import match_resume_to_job
-from resume_optimizer import optimize_resume
+from resume_optimizer import tailor_resume
 from cover_letter_generator import generate_cover_letter
 import shutil
 
@@ -64,6 +64,9 @@ async def generate_cover_letter_api(
         resume_json,
         job_description
     )
+
+
+    return tailored
 
 if __name__ == "__main__":
     import uvicorn
