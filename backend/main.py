@@ -43,7 +43,7 @@ async def optimize(file: UploadFile = File(...),job_description: str = Form(...)
         shutil.copyfileobj(file.file, buffer)
     text = extract_text_from_pdf(file_path)
     resume_json = parse_resume(text)
-    optimized = optimize_resume(resume_json,job_description)
+    optimized = tailor_resume(resume_json,job_description)
     return optimized
 
 @app.post("/generate-cover-letter")
